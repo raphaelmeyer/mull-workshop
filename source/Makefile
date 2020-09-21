@@ -10,17 +10,23 @@ INCLUDES=\
  -isystem /usr/include/x86_64-linux-gnu \
  -isystem /usr/include \
  -isystem /workspace/_deps/googletest-src/googletest/include \
- -isystem /workspace/_deps/doctest-src
+ -isystem /workspace/_deps/googletest-src/googlemock/include
 
-OPTIONS=--ld-search-path /lib/x86_64-linux-gnu/ --ld-search-path /usr/lib/x86_64-linux-gnu/ --compdb-path=/workspace/compile_commands.json -ide-reporter-show-killed --compilation-flags="$(INCLUDES)" --debug
+LD_SEARCH_PATHS=\
+ --ld-search-path /lib/x86_64-linux-gnu/ \
+ --ld-search-path /usr/lib/x86_64-linux-gnu/
+
+
+OPTIONS=\
+ --compdb-path=/workspace/compile_commands.json \
+ -ide-reporter-show-killed \
+ --compilation-flags="$(INCLUDES)" \
+ $(LD_SEARCH_PATHS)
 
 all: build
 
 test: build
-	mull-cxx --test-framework CustomTest $(OPTIONS) --sandbox=None /workspace/bc-test
-
-gtest: build
-	mull-cxx --test-framework GoogleTest $(OPTIONS) /workspace/bc-gtest
+	mull-cxx --test-framework GoogleTest $(OPTIONS) /workspace/roman/roman-test
 
 build: /workspace/CMakeCache.txt
 	cmake --build /workspace
