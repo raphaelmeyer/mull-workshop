@@ -148,19 +148,16 @@ TEST_SUITE("Adding new blocks")
     REQUIRE(bc[1].timestamp() < bc[2].timestamp());
   }
 }
-
-TEST_SUITE("Proof of work")
-{
-  TEST_CASE("all block hashes start with two 0 bytes")
-  {
-    Blockchain bc;
-    bc.add_block("");
-
-    REQUIRE(bc[0].hash()[0] == 0);
-    REQUIRE(bc[0].hash()[1] == 0);
-
-    REQUIRE(bc[1].hash()[0] == 0);
-    REQUIRE(bc[1].hash()[1] == 0);
-  }
-}
 */
+
+TEST(Proof_of_work, all_block_hashes_start_with_two_zero_bytes)
+{
+  Blockchain bc;
+  bc.add_block("");
+
+  ASSERT_EQ(bc[0].hash()[0], 0);
+  ASSERT_EQ(bc[0].hash()[1], 0);
+
+  ASSERT_EQ(bc[1].hash()[0], 0);
+  ASSERT_EQ(bc[1].hash()[1], 0);
+}
