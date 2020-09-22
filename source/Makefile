@@ -20,13 +20,17 @@ LD_SEARCH_PATHS=\
 OPTIONS=\
  --compdb-path=/workspace/compile_commands.json \
  -ide-reporter-show-killed \
+ --mutators cxx_all \
  --compilation-flags="$(INCLUDES)" \
  $(LD_SEARCH_PATHS)
 
 all: build
 
-test: build
+roman: build
 	mull-cxx --test-framework GoogleTest $(OPTIONS) /workspace/roman/roman-test
+
+rose: build
+	mull-cxx --test-framework GoogleTest $(OPTIONS) /workspace/gilded_rose/GildedRose-test
 
 build: /workspace/CMakeCache.txt
 	cmake --build /workspace
