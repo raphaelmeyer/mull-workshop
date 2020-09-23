@@ -10,7 +10,9 @@ INCLUDES=\
  -isystem /usr/include/x86_64-linux-gnu \
  -isystem /usr/include \
  -isystem /workspace/_deps/googletest-src/googletest/include \
- -isystem /workspace/_deps/googletest-src/googlemock/include
+ -isystem /workspace/_deps/googletest-src/googlemock/include \
+ -isystem /workspace/_deps/googletest-src/googletest \
+ -isystem /workspace/_deps/googletest-src/googlemock
 
 LD_SEARCH_PATHS=\
  --ld-search-path /lib/x86_64-linux-gnu/ \
