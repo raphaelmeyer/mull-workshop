@@ -1,23 +1,47 @@
 # Mull Workshop
 
-## Docs
+## Development Environment
 
-* https://mull.readthedocs.io/
-* https://github.com/mull-project/mull/
+In addition to setting up a custom development environment, there are  two options of a prepared environment: a [docker](https://www.docker.com/) container or a virtual machine setup with [vagrant](https://www.vagrantup.com/).
 
-## Development container
+### Docker
 
-Build the container once with
+Install [docker](https://docs.docker.com/get-started/).
+
+Initially create the docker container. This command has to be run just **once**.
 
     docker build --tag mull-workshop docker/
 
-Start development container and open a terminal
+There is a script to open a shell in the container:
 
-    ./env.sh
+    ./docker.sh
 
-Run roman numeral converter example
+Use `ctrl-d` or `exit` to leave the shell.
 
-    > make roman
+The shell should open in folder `/source`.
+Verify the installation by running the roman numeral converter example.
+
+    make roman
+
+### Vagrant
+
+First install [vagrant](https://www.vagrantup.com/).
+All vagrant commands must be run in folder `vm` containting `Vagrantfile`.
+
+To start the VM run `vagrant up`.
+
+Command `vagrant halt` stops the VM.
+With `vagrant destroy` the VM is shutdown and deleted.
+
+Run `vagrant ssh` to open a shell to the development VM.
+
+In the shell you should change to the folder `/source`.
+
+    cd /source
+
+Verify the installation by running the roman numeral converter example.
+
+    make roman
 
 ## Exercise
 
@@ -28,3 +52,8 @@ Run gilded rose tests in the container:
     > make rose
 
 Use mutation testing for guidance in finding test cases.
+
+## References
+
+* https://mull.readthedocs.io/
+* https://github.com/mull-project/mull/
