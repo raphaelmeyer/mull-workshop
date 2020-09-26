@@ -43,6 +43,13 @@ Verify the installation by running the roman numeral converter example.
 
     make roman
 
+### Custom Setup
+
+* clang 9
+* cmake 3.14 or higher
+* [mull](https://mull.readthedocs.io/)
+* ninja (or make)
+
 ## Exercise
 
 In this exercise we want to add some tests to the [Gilded Rose](https://github.com/NotMyself/GildedRose) inventory system in order to safely refactor before implementing the new feature for *conjured items*.
