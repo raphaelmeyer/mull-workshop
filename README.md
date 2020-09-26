@@ -1,4 +1,6 @@
-# Mull Workshop
+# Mutation Testing Workshop with Mull
+
+Sources for mutation testing workshop with [mull](https://github.com/mull-project/mull/).
 
 ## Development Environment
 
