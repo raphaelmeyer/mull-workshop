@@ -19,7 +19,4 @@ RUN apt-get update && apt-get install -y \
   mull \
   ninja-build
 
-RUN apt-get update && apt-get install -y \
-  libcrypto++-dev
-
 WORKDIR /source
